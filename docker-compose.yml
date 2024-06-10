@@ -1,0 +1,28 @@
+version: '3.7'
+
+services:
+    backend:
+        build: Backend/
+        networks:
+          - app-network
+        depends_on:
+          - database
+          - httpd
+
+    database:
+        build: DB/
+        networks:
+          - app-network
+
+    httpd:
+        build: Serveur/
+        ports:
+          - 8082:80
+        networks:
+          - app-network
+        depends_on:
+          - database
+
+networks:
+    app-network: 
+        driver: bridge
