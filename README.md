@@ -2,6 +2,11 @@
 
 ## TP 1
 
+### Network
+
+    Pour créer un network :
+        docker network create app-network
+
 ### Database
 
 #### Build de l'image :   
