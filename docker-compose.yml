@@ -20,7 +20,7 @@ services:
     httpd:
         build: Serveur/ # on build le Dockerfile du serveur
         ports:
-          - 8082:80 # on expose le port 80 du serveur sur le port 8082 de la machine hôte
+          - 80:80 # on expose le port 80 du serveur sur le port 8082 de la machine hôte
         networks:
           - app-network # on se connecte au réseau app-network
         depends_on:
@@ -28,4 +28,5 @@ services:
 
 networks:
     app-network: 
-        driver: bridge
+      name: app-network
+      external: true
