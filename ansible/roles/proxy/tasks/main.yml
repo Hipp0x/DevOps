@@ -1,0 +1,11 @@
+---
+# tasks file for roles/proxy
+- name: Run Proxy
+  docker_container:
+    name: proxy
+    image: hipp0x/serveur:latest
+    state: started
+    networks:
+      - name: "app-network"
+    ports:
+      - "80:80"

@@ -1,0 +1,17 @@
+- hosts: all
+  gather_facts: false
+  become: true
+  roles:
+    - docker
+    - network
+    - database
+    - app
+    - proxy
+  environment:
+    http_proxy: "http://localhost:8082"
+
+  tasks:
+    - name: Test connection
+      ping:
+
+    
