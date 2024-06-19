@@ -2,29 +2,34 @@ version: '3.7'
 
 services:
     # Backend service
-    backend:
-        build: Backend/ # on build le Dockerfile du backend
+    devops-api:
+        build: ./Backend/ # on build le Dockerfile du backend
         networks:
           - app-network # on se connecte au réseau app-network
         depends_on:
-          - database
-          - httpd
+          - devops-database
 
     # Database service
-    database:
-        build: DB/ # on build le Dockerfile de la base de données
+    devops-database:
+        build: ./DB/ # on build le Dockerfile de la base de données
         networks:
           - app-network # on se connecte au réseau app-network
+        volumes:
+          - ./DB/data:/var/lib/postgresql/data
+        environment:
+          POSTGRES_DB: db
+          POSTGRES_USER: usr
+          POSTGRES_PASSWORD: pwd
 
     # Serveur service
-    httpd:
-        build: Serveur/ # on build le Dockerfile du serveur
+    devops-server:
+        build: ./Serveur/ # on build le Dockerfile du serveur
         ports:
           - 80:80 # on expose le port 80 du serveur sur le port 8082 de la machine hôte
         networks:
           - app-network # on se connecte au réseau app-network
         depends_on:
-          - database
+          - devops-api
 
 networks:
     app-network: 

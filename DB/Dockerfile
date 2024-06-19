@@ -8,5 +8,5 @@ ENV POSTGRES_DB=db \
 
 # On copie les fichiers SQL dans le répertoire d'initialisation de la base de données
 # Permet de remplir la base de données au lancement du container
-COPY 01-CreateScheme.sql /docker-entrypoint-initdb.d
-COPY 02-InsertData.sql /docker-entrypoint-initdb.d
+COPY ./01-CreateScheme.sql /docker-entrypoint-initdb.d
+COPY ./02-InsertData.sql /docker-entrypoint-initdb.d

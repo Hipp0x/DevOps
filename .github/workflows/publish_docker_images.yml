@@ -25,7 +25,7 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: ./Backend
           # Note: tags has to be all lower-case
-          tags:  ${{secrets.DOCKERHUB_USR}}/backend:1.0
+          tags:  ${{secrets.DOCKERHUB_USR}}/devops-api:latest
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
@@ -35,7 +35,7 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: ./DB
           # Note: tags has to be all lower-case
-          tags:  ${{secrets.DOCKERHUB_USR}}/database:1.0
+          tags:  ${{secrets.DOCKERHUB_USR}}/devops-database:latest
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
@@ -45,6 +45,6 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: ./Serveur
           # Note: tags has to be all lower-case
-          tags:  ${{secrets.DOCKERHUB_USR}}/serveur:1.0
+          tags:  ${{secrets.DOCKERHUB_USR}}/devops-server:latest
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
