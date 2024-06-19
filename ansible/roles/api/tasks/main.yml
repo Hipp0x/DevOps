@@ -1,9 +1,9 @@
 ---
 # tasks file for roles/app
-  - name: Run App
+  - name: Run API
     docker_container:
       name: app
       state: started
-      image: hipp0x/backend:lastest
+      image: hipp0x/devops-api:latest
       networks:
         - name: "app-network"

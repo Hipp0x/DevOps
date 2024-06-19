@@ -3,6 +3,6 @@
   - name: Run Database
     docker_container:
       name: database
-      image: hipp0x/database:latest
+      image: hipp0x/devops-database:latest
       networks:
         - name: "app-network"
