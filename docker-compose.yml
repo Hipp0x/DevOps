@@ -3,7 +3,7 @@ version: '3.7'
 services:
     # Backend service
     devops-api:
-        build: ./Backend/ # on build le Dockerfile du backend
+        build: ./API/ # on build le Dockerfile du backend
         networks:
           - app-network # on se connecte au réseau app-network
         depends_on:
