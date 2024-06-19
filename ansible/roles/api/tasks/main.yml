@@ -2,7 +2,7 @@
 # tasks file for roles/app
   - name: Run API
     docker_container:
-      name: app
+      name: devops-api
       state: started
       image: hipp0x/devops-api:latest
       networks:
