@@ -9,6 +9,14 @@ services:
         depends_on:
           - devops-database
 
+    # Frontend service
+    devops-frontend:
+        build: ./Front/ # on build le Dockerfile du backend
+        networks:
+          - app-network # on se connecte au réseau app-network
+        depends_on:
+          - devops-api
+
     # Database service
     devops-database:
         build: ./DB/ # on build le Dockerfile de la base de données

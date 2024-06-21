@@ -2,8 +2,8 @@
 # tasks file for roles/app
   - name: Run API
     docker_container:
-      name: devops-api
-      state: started
-      image: hipp0x/devops-api:latest
+      name: devops-api # le nom du container
+      state: started 
+      image: hipp0x/devops-api:latest # l'image sur laquelle on se base
       networks:
-        - name: "app-network"
+        - name: "app-network" # le nom du network auquel on se connecte

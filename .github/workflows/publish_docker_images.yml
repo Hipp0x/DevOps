@@ -19,7 +19,7 @@ jobs:
       - name: Login to DockerHub
         run: docker login -u ${{ secrets.DOCKERHUB_USR }} -p ${{ secrets.DOCKERHUB_PWD }}
 
-      - name: Build image and push backend
+      - name: Build image and push API
         uses: docker/build-push-action@v3
         with:
           # relative path to the place where source code with Dockerfile is located
@@ -29,7 +29,7 @@ jobs:
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
-      - name: Build image and push database
+      - name: Build image and push DB
         uses: docker/build-push-action@v3
         with:
           # relative path to the place where source code with Dockerfile is located
@@ -39,12 +39,22 @@ jobs:
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
-      - name: Build image and push httpd
+      - name: Build image and push Server
         uses: docker/build-push-action@v3
         with:
           # relative path to the place where source code with Dockerfile is located
           context: ./Serveur
           # Note: tags has to be all lower-case
           tags:  ${{secrets.DOCKERHUB_USR}}/devops-server:latest
+          # build on feature branches, push only on main branch
+          push: ${{ github.ref == 'refs/heads/main' }}
+
+      - name: Build image and push Front
+        uses: docker/build-push-action@v3
+        with:
+          # relative path to the place where source code with Dockerfile is located
+          context: ./Front
+          # Note: tags has to be all lower-case
+          tags:  ${{secrets.DOCKERHUB_USR}}/devops-frontend:latest
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}

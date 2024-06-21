@@ -2,10 +2,10 @@
 # tasks file for roles/proxy
 - name: Run Proxy
   docker_container:
-    name: devops-server
-    image: hipp0x/devops-server:latest
+    name: devops-server # le nom du container
+    image: hipp0x/devops-server:latest # l'image sur laquelle on se base 
     state: started
     networks:
-      - name: "app-network"
+      - name: "app-network" # le nom du network auquel on se connecte
     ports:
-      - "8080:80"
+      - "80:80"

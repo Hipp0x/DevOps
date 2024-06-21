@@ -1,0 +1,8 @@
+---
+# tasks file for roles/front
+  - name: Run Front
+    docker_container:
+      name: devops-frontend # le nom du container
+      image: hipp0x/devops-frontend:latest # l'image sur laquelle on se base
+      networks:
+        - name: "app-network" # le nom du network auquel on se connecte
