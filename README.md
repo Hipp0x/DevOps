@@ -7,6 +7,8 @@
     Pour créer un network :
         docker network create app-network
 
+    Le network va permettre d'avoir un environnement dans lequel différents containers tourne pour qu'ils puissent intéragir ensemble
+
 ### Database
 
 #### Build de l'image :   
@@ -193,5 +195,8 @@
         docker build -t frontend .
         docker tag frontend hipp0x/devops-frontend:latest   
         docker push hipp0x/devops-frontend:latest 
+
+
+    La connexion avec le Front n'est faite que pour la machine centos.
 
     
